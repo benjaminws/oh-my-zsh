@@ -22,11 +22,7 @@ function has_rbenv_and_is_local {
     command -v rbenv &> /dev/null
     if [[ $? -eq 0 ]]; then
         rbenv local &> /dev/null
-        if [[ $? -eq 0 ]]; then
-            return 0;
-        else
-            return 1;
-        fi
+        return $?
     fi
 }
 
